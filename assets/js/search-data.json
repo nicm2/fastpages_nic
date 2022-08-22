@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "First Markdown Post",
-            "content": "toc: true layout: post description: Nick first post categories: [markdown] title: AP CSA post — . this is my post . hi .",
-            "url": "https://nicm2.github.io/fastpages_nic/2022/08/21/first-markdown-post.html",
-            "relUrl": "/2022/08/21/first-markdown-post.html",
+            "title": "An Example Markdown Post",
+            "content": "Example Markdown Post . Test hi .",
+            "url": "https://nicm2.github.io/fastpages_nic/markdown/2022/08/21/first-markdown-post.html",
+            "relUrl": "/markdown/2022/08/21/first-markdown-post.html",
             "date": " • Aug 21, 2022"
         }
         
