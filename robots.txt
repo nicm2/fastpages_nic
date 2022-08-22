@@ -1,1 +1,1 @@
-Sitemap: https://fastpages.fast.ai/sitemap.xml
+Sitemap: https://nicm2.github.io/fastpages_nic/sitemap.xml
