@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "Title",
+            "title": "Jupyter Notebook for Bash",
             "content": "Python Checks . python --version python2 --version . Python 3.9.12 Python 2.7.18 . Conda Checks . echo Conda Check # test for a kernel installation test=&quot;jupyter&quot; # keyword check=`conda list | grep $test` # run command n=${#check} # determine length if [[ ${n} &gt; 0 ]]; # testt length then # greater than zero echo &quot;$check&quot; else # less than zero echo &quot;$test not found&quot; fi . Conda Check jupyter 1.0.0 py39h06a4308_7 jupyter_client 6.1.12 pyhd3eb1b0_0 jupyter_console 6.4.0 pyhd3eb1b0_0 jupyter_core 4.9.2 py39h06a4308_0 jupyter_server 1.13.5 pyhd3eb1b0_0 jupyterlab 3.3.2 pyhd3eb1b0_0 jupyterlab_pygments 0.1.2 py_0 jupyterlab_server 2.10.3 pyhd3eb1b0_1 jupyterlab_widgets 1.0.0 pyhd3eb1b0_1 . Jupyter Checks . jupyter --version jupyter kernelspec list . Selected Jupyter core packages... IPython : 8.2.0 ipykernel : 6.9.1 ipywidgets : 7.6.5 jupyter_client : 6.1.12 jupyter_core : 4.9.2 jupyter_server : 1.13.5 jupyterlab : 3.3.2 nbclient : 0.5.13 nbconvert : 6.4.4 nbformat : 5.3.0 notebook : 6.4.8 qtconsole : 5.3.0 traitlets : 5.1.1 Available kernels: bash /home/nmounier/.local/share/jupyter/kernels/bash java /home/nmounier/.local/share/jupyter/kernels/java javascript /home/nmounier/.local/share/jupyter/kernels/javascript python3 /home/nmounier/anaconda3/share/jupyter/kernels/python3 . Kernel Checks . test=&quot;python3&quot; # keyword check=`jupyter kernelspec list | grep $test` # run command n=${#check} # determine length if [[ ${n} &gt; 0 ]]; # testt length then # greater than zero echo &quot;$check&quot; else # less than zero echo &quot;$test not found&quot; fi . python3 /home/nmounier/anaconda3/share/jupyter/kernels/python3 .",
-            "url": "https://nicm2.github.io/fastpages_nic/2022/08/26/bash.html",
-            "relUrl": "/2022/08/26/bash.html",
+            "url": "https://nicm2.github.io/fastpages_nic/jupyter/2022/08/26/bash.html",
+            "relUrl": "/jupyter/2022/08/26/bash.html",
             "date": " • Aug 26, 2022"
         }
         
