@@ -117,6 +117,22 @@
   
 
   
+      ,"page3": {
+          "title": "About Me",
+          "content": "PBL (Project-Based Learning .",
+          "url": "https://nicm2.github.io/fastpages_nic/about/",
+          "relUrl": "/about/",
+          "date": ""
+      }
+      
+  
+
+  
+  
+
+  
+
+  
   
 
   
@@ -125,18 +141,13 @@
   
 
   
-
-  
   
 
   
   
 
   
-  
-
-  
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nicm2.github.io/fastpages_nic/robots.txt",
