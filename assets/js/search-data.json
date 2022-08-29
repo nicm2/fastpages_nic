@@ -13,10 +13,10 @@
   
     
         ,"post1": {
-            "title": "Title",
+            "title": "College Board Notes",
             "content": "Topic 1.1 Why Java . System.out.print and system.out.println display information on the computer monitor | System.out.println moves the cursor to a new line after the information has been displayed while System.out print does not | A string literal is an exact sequence of characters enclosed in double quotes | 3 Error Types: | Syntax/Compiler Error | Exception (ex: divide by 0) | Logic Error (ex: - instead of + when finding the sum) | . Topic 1.2 Variables and Data Types . A type is a set of values (a domain) and a set of operations on them | Data types can be categorized as either primitive or reference | The primitive data types used in this course define the set of operations for numbers and Boolean values | Boolean: T or F, Int: whole numbers, Double: floarting-point numbers | The three primitive data types used in this course are int, double, and Boolean | Each variable has associated memory that is used to hold its value | The memory associated with a variable of a primitve type holds an actual primitve value | When a variable is declared final, its value cannot be changed once it is intialized | .",
-            "url": "https://nicm2.github.io/fastpages_nic/2022/08/27/collegeboard.html",
-            "relUrl": "/2022/08/27/collegeboard.html",
+            "url": "https://nicm2.github.io/fastpages_nic/jupyter/2022/08/27/collegeboard.html",
+            "relUrl": "/jupyter/2022/08/27/collegeboard.html",
             "date": " • Aug 27, 2022"
         }
         
