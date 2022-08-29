@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: A minimal example of using markdown with fastpages.
+description: My schedule with useful links to help with organization.
 categories: [markdown]
-title: An Example Markdown Post
+title: Weekly Schedule
 ---
 # Nick's Weekly Schedule to help with organization
 
