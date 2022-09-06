@@ -15,8 +15,8 @@ title: Week 2 Ticket
 - [Issue](https://github.com/nicm2/fastpages_nic/issues/5)
 
 ## Posts
-- [Java Menu Notebook](https://nicm2.github.io/fastpages_nic/2022/09/06/menu.html)
-- [Code.org Reflection]()
+- [Java Menu Notebook](https://nicm2.github.io/fastpages_nic/jupyter/2022/09/06/menu.html)
+- [Code.org Reflection](https://nicm2.github.io/fastpages_nic/jupyter/2022/09/04/codeorg.html)
 
 ## Code.org Progress
 
