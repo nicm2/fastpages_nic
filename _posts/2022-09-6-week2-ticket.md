@@ -12,7 +12,7 @@ title: Week 2 Ticket
 - Code.org java reflection
 
 ## Review Ticket Issue
-[Issue](https://github.com/nicm2/fastpages_nic/issues/5)
+- [Issue](https://github.com/nicm2/fastpages_nic/issues/5)
 
 ## Posts
 - [Java Menu Notebook]()
