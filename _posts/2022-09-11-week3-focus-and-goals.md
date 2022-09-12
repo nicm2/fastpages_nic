@@ -9,9 +9,22 @@ title: Goals and Habits
 
 ## Goals and Focusses for the Future
 
--a
+- Get involved in a club this school year (preferably one related to my intrests)
+- Take online courses to find my intrests that I want to pursue in the future
+- Get an internship or take summer courses next summer 
+- Stop procrastinating and get my work done quickly
+- Be happy and not feel stressed by school and work
+- Prioritize mental health
+- Get a consistent schedule and stick to it
+- Go to the gym more often which will help me and my mental health
 
 ## Physcology and the Good Life Takeaways
+
+- A large percentage of college students feel stressed out by school work
+- Teachers don't try to make you feel depressed
+- It's important to prioritize mental health
+- You will be more productive if you feel happy
+- Anxiety and stress is important to managage
 
 
 ## Gratitude 
