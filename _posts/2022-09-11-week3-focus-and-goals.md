@@ -25,7 +25,7 @@ title: Goals and Habits
 - It's important to prioritize mental health
 - You will be more productive if you feel happy
 - Anxiety and stress is important to managage
-The video was very enlightening and helped me better understand how I can overcome struggles with stress and achieve happiness. Laurie gave me some good ideas to help relieve stress by spending time with other people and maintaining social connections. Overall, I feel like I need to prioritize my hapinness in order to pursue a more successful future. Mental health and motivitation is just as important as how much work I can get done. I need to focus on myself. 
+- The video was very enlightening and helped me better understand how I can overcome struggles with stress and achieve happiness. Laurie gave me some good ideas to help relieve stress by spending time with other people and maintaining social connections. Overall, I feel like I need to prioritize my hapinness in order to pursue a more successful future. Mental health and motivitation is just as important as how much work I can get done. I need to focus on myself. 
 
 ## Gratitude 
 - I am grateful for my parents who support and encourage me in everything that I do. My loving parents push me to be the best and I wouldn't want anyone else on my sideline. My parents are also very kind and hard-working. I look up to them and hope to make them proud.
