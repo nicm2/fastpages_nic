@@ -28,3 +28,4 @@ title: Goals and Habits
 
 
 ## Gratitude 
+- I am grateful for my parents who support and encourage me in everything that I do. My loving parents push me to be the best and I wouldn't want anyone else on my sideline. My parents are also very kind and hard-working. I look up to them and hope to make them proud.
