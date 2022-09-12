@@ -16,7 +16,7 @@ title: Week 3 Ticket
 
 ## Posts
 - [Deployed Java Project on AWS](https://nicm2.github.io/fastpages_nic/markdown/2022/09/10/deployment.html)
-- [Lesson on ifs and expressions](https://nicm2.github.io/fastpages_nic/2022/09/11/java-if.html)
+- [Lesson on ifs and expressions](https://nicm2.github.io/fastpages_nic/2022/09/11/if-lesson.html)
 - [Focus / Habits Blog](https://nicm2.github.io/fastpages_nic/markdown/2022/09/11/week3-focus-and-goals.html)
 
 ## Java Project
