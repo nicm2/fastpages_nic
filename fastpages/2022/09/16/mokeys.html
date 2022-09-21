@@ -377,7 +377,7 @@ No more monkeys jumping on the bed
 </ul>
 </li>
 </ul>
-<p>This program is in Imperative programming style since it's just a 2D array being printed. It doesn't show inheritance and OOP programming paradigm. This can be implemented similarly in Python or other programming languages. The monkey is not an object because it is just a string of ASCII characters. An object would be monkey = Monkey() with attributes and methods.</p>
+<p>This 2D array program is definatley more of an Imperative Programming Style rather than Object-Oriented Programming style. This is because the program just prints out a 2D array of monkeys which aren't object but just a string of ASCII characters. There is no class for monkey that has attributes and methods so the program dosen't use OOP and can be replicated in other languages</p>
 <ul>
 <li>Study loops and zero based counting<ul>
 <li>Study two-dimensional (2D) array references</li>
@@ -385,7 +385,7 @@ No more monkeys jumping on the bed
 </ul>
 </li>
 </ul>
-<p>2D arrays can be referenced by using the row and column number. See below code cell.</p>
+<p>2D arrays can be refrenced through the row and collumn (2 dimensions).</p>
 
 </div>
 </div>
@@ -411,21 +411,21 @@ No more monkeys jumping on the bed
         <span class="n">monkeys</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[][]</span><span class="p">{</span>   <span class="c1">//2D array above is just a name, "new" makes a container ("object")</span>
                 <span class="c1">//Monkey 0</span>
                 <span class="p">{</span>
-                        <span class="s">"ʕง ͠° ͟ل͜ ͡°)ʔ "</span><span class="p">,</span>      <span class="c1">//[0][0] eyes</span>
+                        <span class="s">"ʕง ͠° ͟ل͜ ͡°)ʔ"</span><span class="p">,</span>      <span class="c1">//[0][0] eyes</span>
                         <span class="s">"  \\_⏄_/  "</span><span class="p">,</span>      <span class="c1">//[0][1] chin</span>
                         <span class="s">"  --0--   "</span><span class="p">,</span>       <span class="c1">//[0][2] body</span>
                         <span class="s">"  ⎛   ⎞   "</span>        <span class="c1">//[0][3] legs</span>
                 <span class="p">},</span>
                 <span class="c1">//Monkey 1</span>
                 <span class="p">{</span>
-                        <span class="s">" ʕ༼ ◕_◕ ༽ʔ"</span><span class="p">,</span>       <span class="c1">//[1][0]</span>
+                        <span class="s">"ʕ༼ ◕_◕ ༽ʔ"</span><span class="p">,</span>       <span class="c1">//[1][0]</span>
                         <span class="s">"  \\_⎏_/  "</span><span class="p">,</span>
                         <span class="s">"  ++1++  "</span><span class="p">,</span>
                         <span class="s">"   ⌋ ⌊   "</span>
                 <span class="p">},</span>
                 <span class="c1">//Monkey 2</span>
                 <span class="p">{</span>
-                        <span class="s">" ʕ(▀ ⍡ ▀)ʔ"</span><span class="p">,</span>       <span class="c1">//[2][0]</span>
+                        <span class="s">"ʕ(▀ ⍡ ▀)ʔ"</span><span class="p">,</span>       <span class="c1">//[2][0]</span>
                         <span class="s">"  \\_⎐_/ "</span><span class="p">,</span>
                         <span class="s">"  &lt;-2-&gt;  "</span><span class="p">,</span>
                         <span class="s">"  〈  〉 "</span>
@@ -433,13 +433,13 @@ No more monkeys jumping on the bed
                 <span class="c1">//Monkey 3</span>
                 <span class="p">{</span>
                         <span class="s">"ʕ ͡° ͜ʖ ° ͡ʔ"</span><span class="p">,</span>        <span class="c1">//[3][0]</span>
-                        <span class="s">"  \\_⍾_/  "</span><span class="p">,</span>
-                        <span class="s">"  ==3==  "</span><span class="p">,</span>
-                        <span class="s">"  _/ \\_  "</span>
+                        <span class="s">"   \\_⍾_/  "</span><span class="p">,</span>
+                        <span class="s">"   ==3==  "</span><span class="p">,</span>
+                        <span class="s">"   _/ \\_  "</span>
                 <span class="p">},</span>
                 <span class="c1">//Monkey 4</span>
                 <span class="p">{</span>
-                        <span class="s">"  (◕‿◕✿) "</span><span class="p">,</span>          <span class="c1">//[4][0]</span>
+                        <span class="s">"(◕‿◕✿)"</span><span class="p">,</span>          <span class="c1">//[4][0]</span>
                         <span class="s">"  \\_⍾_/ "</span><span class="p">,</span>          <span class="c1">//[4][1]</span>
                         <span class="s">"  ==4==  "</span><span class="p">,</span>          <span class="c1">//[4][2]</span>
                         <span class="s">"  _/ \\_ "</span>           <span class="c1">//[4][3]</span>
@@ -469,7 +469,7 @@ No more monkeys jumping on the bed
             
             <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">r</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span> <span class="n">r</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">// iterate through rows</span>
                 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">m</span><span class="o">&lt;</span><span class="n">i</span><span class="p">;</span> <span class="n">m</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// iterate through monkeys</span>
-                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">monkeys</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">r</span><span class="o">]</span> <span class="o">+</span> <span class="s">"     "</span><span class="p">);</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">monkeys</span><span class="o">[</span><span class="n">m</span><span class="o">][</span><span class="n">r</span><span class="o">]</span> <span class="o">+</span> <span class="s">"            "</span><span class="p">);</span>
                 <span class="p">}</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
             <span class="p">}</span>
@@ -509,34 +509,34 @@ No more monkeys jumping on the bed
 <pre>
 Monkey Jumpers Poem in Java Loopy
 5 little monkeys jumping on the bed...
-ʕง ͠° ͟ل͜ ͡°)ʔ       ʕ༼ ◕_◕ ༽ʔ      ʕ(▀ ⍡ ▀)ʔ     ʕ ͡° ͜ʖ ° ͡ʔ       (◕‿◕✿)      
-  \_⏄_/         \_⎏_/         \_⎐_/        \_⍾_/         \_⍾_/      
-  --0--          ++1++         &lt;-2-&gt;         ==3==         ==4==       
-  ⎛   ⎞           ⌋ ⌊          〈  〉        _/ \_         _/ \_      
+ʕง ͠° ͟ل͜ ͡°)ʔ            ʕ༼ ◕_◕ ༽ʔ            ʕ(▀ ⍡ ▀)ʔ            ʕ ͡° ͜ʖ ° ͡ʔ            (◕‿◕✿)            
+  \_⏄_/                \_⎏_/                \_⎐_/                \_⍾_/                \_⍾_/             
+  --0--                 ++1++                &lt;-2-&gt;                 ==3==                ==4==              
+  ⎛   ⎞                  ⌋ ⌊                 〈  〉                _/ \_                _/ \_             
 
 4 little monkeys jumping on the bed...
-ʕง ͠° ͟ل͜ ͡°)ʔ       ʕ༼ ◕_◕ ༽ʔ      ʕ(▀ ⍡ ▀)ʔ     ʕ ͡° ͜ʖ ° ͡ʔ     
-  \_⏄_/         \_⎏_/         \_⎐_/        \_⍾_/       
-  --0--          ++1++         &lt;-2-&gt;         ==3==       
-  ⎛   ⎞           ⌋ ⌊          〈  〉        _/ \_       
+ʕง ͠° ͟ل͜ ͡°)ʔ            ʕ༼ ◕_◕ ༽ʔ            ʕ(▀ ⍡ ▀)ʔ            ʕ ͡° ͜ʖ ° ͡ʔ            
+  \_⏄_/                \_⎏_/                \_⎐_/                \_⍾_/              
+  --0--                 ++1++                &lt;-2-&gt;                 ==3==              
+  ⎛   ⎞                  ⌋ ⌊                 〈  〉                _/ \_              
 
 3 little monkeys jumping on the bed...
-ʕง ͠° ͟ل͜ ͡°)ʔ       ʕ༼ ◕_◕ ༽ʔ      ʕ(▀ ⍡ ▀)ʔ     
-  \_⏄_/         \_⎏_/         \_⎐_/      
-  --0--          ++1++         &lt;-2-&gt;       
-  ⎛   ⎞           ⌋ ⌊          〈  〉      
+ʕง ͠° ͟ل͜ ͡°)ʔ            ʕ༼ ◕_◕ ༽ʔ            ʕ(▀ ⍡ ▀)ʔ            
+  \_⏄_/                \_⎏_/                \_⎐_/             
+  --0--                 ++1++                &lt;-2-&gt;              
+  ⎛   ⎞                  ⌋ ⌊                 〈  〉             
 
 2 little monkeys jumping on the bed...
-ʕง ͠° ͟ل͜ ͡°)ʔ       ʕ༼ ◕_◕ ༽ʔ     
-  \_⏄_/         \_⎏_/       
-  --0--          ++1++       
-  ⎛   ⎞           ⌋ ⌊        
+ʕง ͠° ͟ل͜ ͡°)ʔ            ʕ༼ ◕_◕ ༽ʔ            
+  \_⏄_/                \_⎏_/              
+  --0--                 ++1++              
+  ⎛   ⎞                  ⌋ ⌊               
 
 1 little monkeys jumping on the bed...
-ʕง ͠° ͟ل͜ ͡°)ʔ      
-  \_⏄_/       
-  --0--        
-  ⎛   ⎞        
+ʕง ͠° ͟ل͜ ͡°)ʔ            
+  \_⏄_/              
+  --0--               
+  ⎛   ⎞               
 
 No more monkeys jumping on the bed
 0000000000000000000000000000000000
