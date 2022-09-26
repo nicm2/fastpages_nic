@@ -250,17 +250,6 @@
 
   
       ,"page3": {
-          "title": "NFL Teams",
-          "content": "&lt;!DOCTYPE html&gt; . NBA Teams . NBA Teams . Team Name . .",
-          "url": "https://nicm2.github.io/fastpages_nic/nflteams",
-          "relUrl": "/nflteams",
-          "date": ""
-      }
-      
-  
-
-  
-      ,"page4": {
           "title": "PBL",
           "content": "PBL Content . Java Menu | .",
           "url": "https://nicm2.github.io/fastpages_nic/pbl/",
@@ -292,7 +281,7 @@
   
 
   
-      ,"page13": {
+      ,"page12": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nicm2.github.io/fastpages_nic/robots.txt",
