@@ -1,0 +1,89 @@
+---
+layout: default
+permalink: /nbateams
+title: NFL Teams
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>NBA Teams</title>
+    <meta name="description" content="NBA Teams and their Information." />
+  </head>
+  <body>
+    <h1 style="text-align: center; font-size: 50px">
+      NBA
+      <span style="color: #ff5e5e !important; font-weight: bold">Teams</span>
+    </h1>
+
+    <table class="teams" border="1">
+      <tr>
+        <th>Team Name</th>
+      </tr>
+    </table>
+    <script type="text/javascript">
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'ec6e646230mshf820e393587eb36p16c0b2jsn78339512865b',
+                'X-RapidAPI-Host': 'nfl-schedule.p.rapidapi.com'
+            }
+        };
+        
+        fetch('https://nfl-schedule.p.rapidapi.com/v1/schedules', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));`
+            
+        <tr>
+          <td>${schedule}</td>
+        </tr>`;
+
+    </script>
+
+    <style type="text/css">
+      @import url("https://rsms.me/inter/inter.css");
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif !important;
+      }
+
+      .profile {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .pic {
+        width: 200px;
+        border-radius: 100%;
+      }
+
+      .teams {
+        margin-right: none;
+        margin-left: none;
+        padding: 0;
+        columns: 3;
+        font-size: 20px;
+      }
+
+      img {
+        width: 200px;
+      }
+
+      ul {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+      }
+
+      table {
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
