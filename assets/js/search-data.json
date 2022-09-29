@@ -247,9 +247,20 @@
   
 
   
+      ,"page2": {
+          "title": "NFL Teams Stats",
+          "content": "Name ID Age .",
+          "url": "https://nicm2.github.io/fastpages_nic/nflteams",
+          "relUrl": "/nflteams",
+          "date": ""
+      }
+      
+  
 
   
-      ,"page3": {
+
+  
+      ,"page4": {
           "title": "PBL",
           "content": "PBL Content . Java Menu | .",
           "url": "https://nicm2.github.io/fastpages_nic/pbl/",
@@ -281,7 +292,7 @@
   
 
   
-      ,"page12": {
+      ,"page13": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://nicm2.github.io/fastpages_nic/robots.txt",
