@@ -34,7 +34,15 @@ title: NFL Teams Stats
 
 fetch('https://nfl-team-stats.p.rapidapi.com/v1/nfl-stats/teams/win-stats/2020', options)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      const list = data.teamReceivingStatsList;
+      
+      list.map((item) => {
+        const team = item.name
+        const touchdowns = item.touchdowns
+        const yards = item.yards
+      })
+    })
     .catch(err => {
       console.error(err);
     });
