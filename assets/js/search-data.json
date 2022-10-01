@@ -249,7 +249,7 @@
   
       ,"page2": {
           "title": "NFL Teams Stats",
-          "content": "Name ID Age .",
+          "content": "Team Touchdowns Yards .",
           "url": "https://nicm2.github.io/fastpages_nic/nflteams",
           "relUrl": "/nflteams",
           "date": ""
