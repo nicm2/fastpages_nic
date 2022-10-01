@@ -84,7 +84,7 @@ window.onload = wrap_img;
 </table>
 
 <!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
-<script>
+<script >
   // prepare HTML result container for new output
   const resultContainer = document.getElementById("result");
 
@@ -99,55 +99,19 @@ window.onload = wrap_img;
 
 fetch('https://nfl-team-stats.p.rapidapi.com/v1/nfl-stats/teams/win-stats/2020', options)
     .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-
-  // fetch the API
-  fetch(url, options)
-    // response is a RESTful "promise" on any successful fetch
-    .then(response => {
-      // check for response errors
-      if (response.status !== 200) {
-          const errorMsg = 'Database response error: ' + response.status;
-          console.log(errorMsg);
-          const tr = document.createElement("tr");
-          const td = document.createElement("td");
-          td.innerHTML = errorMsg;
-          tr.appendChild(td);
-          resultContainer.appendChild(tr);
-          return;
-      }
-      // valid response will have json data
-      response.json().then(data => {
-          console.log(data);
-          for (const row of data) {
-            // tr and td build out for each row
-            const team = document.createElement("tr");
-            const touchdowns = document.createElement("td");
-            const yards = document.createElement("td");
-            // data is specific to the API
-            team.innerHTML = row.team; 
-            touchdowns.innerHTML = row.touchdowns; 
-            yards.innerHTML = row.yards; 
-            // this build td's into tr
-            tr.appendChild(team);
-            tr.appendChild(touchdowns);
-            tr.appendChild(yards);
-            // add HTML to container
-            resultContainer.appendChild(tr);
-          }
+    .then(data => {
+      const list = data.teamReceivingStatsList;
+      
+      list.map((item) => {
+        const team = item.name
+        const touchdowns = item.touchdowns
+        const yards = item.yards
       })
-  })
-  // catch fetch errors (ie ACCESS to server blocked)
-  .catch(err => {
-    console.error(err);
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    td.innerHTML = err;
-    tr.appendChild(td);
-    resultContainer.appendChild(tr);
-  });
-</script>
+    })
+    .catch(err => {
+      console.error(err);
+    });
+
 
       </div>
     </main><footer class="site-footer h-card">
