@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Images and Arrays" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Jupyter Notebook on Images and image manipulation and arrays" />
-<meta property="og:description" content="Jupyter Notebook on Images and image manipulation and arrays" />
+<meta name="description" content="Jupyter Notebook on Images and image manipulation with arrays" />
+<meta property="og:description" content="Jupyter Notebook on Images and image manipulation with arrays" />
 <link rel="canonical" href="https://nicm2.github.io/fastpages_nic/fastpages/2022/09/28/images.html" />
 <meta property="og:url" content="https://nicm2.github.io/fastpages_nic/fastpages/2022/09/28/images.html" />
 <meta property="og:site_name" content="fastpages" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Images and Arrays" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-28T00:00:00-05:00","datePublished":"2022-09-28T00:00:00-05:00","description":"Jupyter Notebook on Images and image manipulation and arrays","headline":"Images and Arrays","mainEntityOfPage":{"@type":"WebPage","@id":"https://nicm2.github.io/fastpages_nic/fastpages/2022/09/28/images.html"},"url":"https://nicm2.github.io/fastpages_nic/fastpages/2022/09/28/images.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-28T00:00:00-05:00","datePublished":"2022-09-28T00:00:00-05:00","description":"Jupyter Notebook on Images and image manipulation with arrays","headline":"Images and Arrays","mainEntityOfPage":{"@type":"WebPage","@id":"https://nicm2.github.io/fastpages_nic/fastpages/2022/09/28/images.html"},"url":"https://nicm2.github.io/fastpages_nic/fastpages/2022/09/28/images.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/fastpages_nic/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://nicm2.github.io/fastpages_nic/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/fastpages_nic/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Images and Arrays</h1><p class="page-description">Jupyter Notebook on Images and image manipulation and arrays</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-28T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Images and Arrays</h1><p class="page-description">Jupyter Notebook on Images and image manipulation with arrays</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-28T00:00:00-05:00" itemprop="datePublished">
         Sep 28, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -148,30 +148,20 @@ window.onload = wrap_img;
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ImageIOTest</span> <span class="p">{</span>    
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="p">){</span>
-       <span class="n">BufferedImage</span> <span class="n">img1</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
-       <span class="n">BufferedImage</span> <span class="n">img2</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
-       <span class="n">BufferedImage</span> <span class="n">img3</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
+       <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
         <span class="k">try</span> <span class="p">{</span>
             <span class="c1">// Name of file and directories</span>
-            <span class="n">String</span> <span class="n">ML</span> <span class="o">=</span> <span class="s">"MonaLisa"</span><span class="p">;</span>
-            <span class="n">String</span> <span class="n">monkey</span> <span class="o">=</span> <span class="s">"monkey"</span><span class="p">;</span>
-            <span class="n">String</span> <span class="n">pumpkin</span> <span class="o">=</span> <span class="s">"pumpkin"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"MonaLisa"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">in</span> <span class="o">=</span> <span class="s">"images/"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">out</span> <span class="o">=</span> <span class="s">"images/tmp/"</span><span class="p">;</span>
 
             <span class="c1">// Either use URL or File for reading image using ImageIO</span>
-            <span class="n">File</span> <span class="n">imageFile1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/"</span> <span class="o">+</span> <span class="n">ML</span> <span class="o">+</span> <span class="s">".png"</span><span class="p">);</span>
-            <span class="n">File</span> <span class="n">imageFile2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/"</span> <span class="o">+</span> <span class="n">monkey</span> <span class="o">+</span> <span class="s">".png"</span><span class="p">);</span>
-            <span class="n">File</span> <span class="n">imageFile3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/"</span> <span class="o">+</span> <span class="n">pumpkin</span> <span class="o">+</span> <span class="s">".png"</span><span class="p">);</span>
-
-            <span class="n">img1</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">imageFile1</span><span class="p">);</span>  <span class="c1">// set buffer of image data</span>
-            <span class="n">img2</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">imageFile2</span><span class="p">);</span>  <span class="c1">// set buffer of image data</span>
-            <span class="n">img3</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">imageFile3</span><span class="p">);</span>  <span class="c1">// set buffer of image data</span>
+            <span class="n">File</span> <span class="n">imageFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".png"</span><span class="p">);</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">imageFile</span><span class="p">);</span>  <span class="c1">// set buffer of image data</span>
 
             <span class="c1">// ImageIO Image write to gif in Java</span>
             <span class="c1">// Documentation https://docs.oracle.com/javase/tutorial/2d/images/index.html</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img1</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/tmp/MonaLisa/"</span> <span class="o">+</span> <span class="n">ML</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/tmp/Monkey/"</span> <span class="o">+</span> <span class="n">monkey</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="s">"jpg"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/tmp/Monkey/"</span> <span class="o">+</span> <span class="n">monkey</span> <span class="o">+</span> <span class="s">".jpg"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img3</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">"images/tmp/Pumpkin/"</span> <span class="o">+</span> <span class="n">pumpkin</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
+            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
 
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
               <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
@@ -183,6 +173,20 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Success
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -200,6 +204,7 @@ window.onload = wrap_img;
 <span class="kn">import</span> <span class="nn">java.awt.image.BufferedImage</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.Image</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+
 <span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.io.FileWriter</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
@@ -207,6 +212,7 @@ window.onload = wrap_img;
 <span class="kn">import</span> <span class="nn">java.nio.file.Files</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+
 <span class="kn">import</span> <span class="nn">javax.imageio.stream.ImageOutputStream</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.imageio.stream.ImageInputStream</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.imageio.metadata.IIOMetadata</span><span class="p">;</span>
@@ -216,6 +222,7 @@ window.onload = wrap_img;
 <span class="kn">import</span> <span class="nn">javax.imageio.ImageWriter</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.imageio.ImageReader</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">javax.imageio.ImageTypeSpecifier</span><span class="p">;</span>
+
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pics</span> <span class="p">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">inDir</span> <span class="o">=</span> <span class="s">"images/"</span><span class="p">;</span> <span class="c1">// location of images</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">outDir</span> <span class="o">=</span> <span class="s">"images/tmp/"</span><span class="p">;</span>  <span class="c1">// location of created files</span>
@@ -226,14 +233,17 @@ window.onload = wrap_img;
     <span class="kd">private</span> <span class="kt">long</span> <span class="n">bytes</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
+
     <span class="c1">// Constructor obtains attributes of picture</span>
-    <span class="kd">public</span> <span class="nf">Pics</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">String</span> <span class="n">ext</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">Pics</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">ext</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">ext</span> <span class="o">=</span> <span class="n">ext</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="na">inFile</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">inDir</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">ext</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">resizedFile</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">outDir</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">ext</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">asciiFile</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">outDir</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">resizedFile</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">outDir</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">ext</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">asciiFile</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">outDir</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="na">setStats</span><span class="p">();</span>
     <span class="p">}</span>
+
+    
     <span class="c1">// An image contains metadata, namely size, width, and height</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStats</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">BufferedImage</span> <span class="n">img</span><span class="p">;</span>
@@ -246,28 +256,36 @@ window.onload = wrap_img;
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
     <span class="p">}</span>
+
     <span class="c1">// Console print of data</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printStats</span><span class="p">(</span><span class="n">String</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">bytes</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">+</span> <span class="s">"  "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">inFile</span><span class="p">);</span>
     <span class="p">}</span>
+
     <span class="c1">// Convert scaled image into buffered image</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">BufferedImage</span> <span class="nf">convertToBufferedImage</span><span class="p">(</span><span class="n">Image</span> <span class="n">img</span><span class="p">)</span> <span class="p">{</span>
+
         <span class="c1">// Create a buffered image with transparency</span>
         <span class="n">BufferedImage</span> <span class="n">bi</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedImage</span><span class="p">(</span>
                 <span class="n">img</span><span class="p">.</span><span class="na">getWidth</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span> <span class="n">img</span><span class="p">.</span><span class="na">getHeight</span><span class="p">(</span><span class="kc">null</span><span class="p">),</span>
                 <span class="n">BufferedImage</span><span class="p">.</span><span class="na">TYPE_INT_ARGB</span><span class="p">);</span>
+
         <span class="c1">// magic?</span>
         <span class="n">Graphics2D</span> <span class="n">graphics2D</span> <span class="o">=</span> <span class="n">bi</span><span class="p">.</span><span class="na">createGraphics</span><span class="p">();</span>
         <span class="n">graphics2D</span><span class="p">.</span><span class="na">drawImage</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
         <span class="n">graphics2D</span><span class="p">.</span><span class="na">dispose</span><span class="p">();</span>
+
         <span class="k">return</span> <span class="n">bi</span><span class="p">;</span>
     <span class="p">}</span>
+    
     <span class="c1">// Scale or reduce to "scale" percentage provided</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="kt">int</span> <span class="n">scale</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="n">Image</span> <span class="n">resizedImg</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="n">Image</span> <span class="n">resizedImg</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  
+
         <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
         <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
+
         <span class="k">try</span> <span class="p">{</span>
             <span class="c1">// read an image to BufferedImage for processing</span>
             <span class="n">img</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">inFile</span><span class="p">));</span>  <span class="c1">// set buffer of image data</span>
@@ -276,35 +294,42 @@ window.onload = wrap_img;
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
+
         <span class="k">try</span> <span class="p">{</span>
             <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">convertToBufferedImage</span><span class="p">(</span><span class="n">resizedImg</span><span class="p">),</span> <span class="k">this</span><span class="p">.</span><span class="na">ext</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">resizedFile</span><span class="p">));</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span><span class="p">;</span>
         <span class="p">}</span>
+        
         <span class="k">this</span><span class="p">.</span><span class="na">inFile</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">resizedFile</span><span class="p">;</span>  <span class="c1">// use scaled file vs original file in Class</span>
         <span class="k">this</span><span class="p">.</span><span class="na">setStats</span><span class="p">();</span>
     <span class="p">}</span>
+    
     <span class="c1">// convert every pixel to an ascii character (ratio does not seem correct)</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">convertToAscii</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
         <span class="n">PrintWriter</span> <span class="n">asciiPrt</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
         <span class="n">FileWriter</span> <span class="n">asciiWrt</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
         <span class="k">try</span> <span class="p">{</span>
             <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">asciiFile</span><span class="p">);</span>
-            <span class="n">Files</span><span class="p">.</span><span class="na">deleteIfExists</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">());</span>
+            <span class="n">Files</span><span class="p">.</span><span class="na">deleteIfExists</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">toPath</span><span class="p">());</span> 
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Delete File error: "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
         <span class="p">}</span>
+
         <span class="k">try</span> <span class="p">{</span>
             <span class="n">asciiPrt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="p">(</span><span class="n">asciiWrt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">asciiFile</span><span class="p">,</span> <span class="kc">true</span><span class="p">));</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"ASCII out file create error: "</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
         <span class="p">}</span>
+
         <span class="k">try</span> <span class="p">{</span>
             <span class="n">img</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">inFile</span><span class="p">));</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span> <span class="n">i</span><span class="o">+=</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">Color</span> <span class="n">col</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="na">getRGB</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span>
                 <span class="kt">double</span> <span class="n">pixVal</span> <span class="o">=</span> <span class="p">(((</span><span class="n">col</span><span class="p">.</span><span class="na">getRed</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.30</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="na">getBlue</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.59</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">col</span>
@@ -324,6 +349,7 @@ window.onload = wrap_img;
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
+
     <span class="c1">// conversion table, there may be better out there ie https://www.billmongan.com/Ursinus-CS173-Fall2020/Labs/ASCIIArt</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">asciiChar</span><span class="p">(</span><span class="kt">double</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">" "</span><span class="p">;</span>
@@ -348,29 +374,43 @@ window.onload = wrap_img;
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">str</span><span class="p">;</span>
     <span class="p">}</span>
+
     <span class="c1">// tester/driver</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
-        <span class="n">Pics</span> <span class="n">monaLisa</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"MonaLisa"</span><span class="p">,</span> <span class="s">"MonaLisa/"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
+        <span class="n">Pics</span> <span class="n">monaLisa</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"MonaLisa"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
         <span class="n">monaLisa</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
         <span class="n">monaLisa</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
         <span class="n">monaLisa</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
         <span class="n">monaLisa</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
-        <span class="n">Pics</span> <span class="n">pumpkin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"pumpkin"</span><span class="p">,</span> <span class="s">"Pumpkin/"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
+
+        <span class="n">Pics</span> <span class="n">pumpkin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"pumpkin"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
-        <span class="n">Pics</span> <span class="n">monkey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"monkey"</span><span class="p">,</span> <span class="s">"Monkey/"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
-        <span class="n">monkey</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
-        <span class="n">monkey</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
-        <span class="n">monkey</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
-        <span class="n">monkey</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">Pics</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Original: 499298 389x413  images/MonaLisa.png
+Scaled: 55625 128x136  images/tmp/MonaLisa.png
+Original: 39392 302x265  images/pumpkin.png
+Scaled: 10497 100x87  images/tmp/pumpkin.png
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
