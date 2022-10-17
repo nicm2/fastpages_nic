@@ -232,93 +232,76 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">gradecalc</span> <span class="p">{</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">){</span>
-		<span class="n">Scanner</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
-		<span class="kt">int</span> <span class="n">students</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="kt">int</span> <span class="n">exams</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="kt">double</span> <span class="n">classav</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="kt">double</span> <span class="n">lowest</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="kt">double</span> <span class="n">highest</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		
-		<span class="n">String</span> <span class="n">name</span><span class="p">;</span>
-		
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Please enter the number of students: "</span><span class="p">);</span>
-		<span class="n">students</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Please enter the number of exams   : "</span><span class="p">);</span>
-		<span class="n">exams</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\n\n----------------------------------------"</span><span class="p">);</span>
-		
-		<span class="n">String</span><span class="o">[]</span> <span class="n">examScores</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span> <span class="o">[</span><span class="n">exams</span><span class="o">]</span><span class="p">;</span>
-		
-		<span class="k">while</span><span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">students</span><span class="p">)</span> <span class="p">{</span>
-			<span class="kt">int</span> <span class="n">totalExam</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-			<span class="kt">int</span> <span class="n">starnum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-			<span class="kt">char</span> <span class="n">letter</span><span class="o">=</span><span class="sc">'a'</span><span class="p">;</span>
-			<span class="n">String</span> <span class="n">stars</span><span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-		
-			
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Enter student "</span> <span class="o">+</span> <span class="p">(</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span><span class="s">"'s name\t: "</span><span class="p">);</span>
-		<span class="n">name</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
-		<span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span> 
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Enter exam scores\t: "</span><span class="p">);</span>
-		<span class="n">examScores</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">nextLine</span><span class="p">().</span><span class="na">split</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
-
-		
-		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">exams</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-			<span class="n">totalExam</span> <span class="o">+=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
-		<span class="p">}</span><span class="c1">//for loop</span>
-		<span class="kt">int</span> <span class="n">studentavg</span> <span class="o">=</span> <span class="n">totalExam</span> <span class="o">/</span> <span class="n">exams</span><span class="p">;</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">" Average: "</span> <span class="o">+</span> <span class="n">studentavg</span><span class="p">);</span>
-		
-		<span class="k">if</span><span class="p">(</span><span class="n">studentavg</span><span class="o">&gt;=</span><span class="mi">90</span><span class="p">){</span>
-			<span class="n">letter</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
-			<span class="n">stars</span> <span class="o">=</span> <span class="s">"****"</span><span class="p">;</span>
-			<span class="n">starnum</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-		<span class="p">}</span><span class="c1">//if1</span>
-		<span class="k">if</span><span class="p">(</span><span class="n">studentavg</span><span class="o">&lt;</span><span class="mi">90</span> <span class="o">&amp;&amp;</span> <span class="n">studentavg</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">){</span>
-			<span class="n">letter</span> <span class="o">=</span> <span class="sc">'B'</span><span class="p">;</span>
-			<span class="n">stars</span> <span class="o">=</span> <span class="s">"***"</span><span class="p">;</span>
-			<span class="n">starnum</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-		<span class="p">}</span><span class="c1">//if2</span>
-		<span class="k">if</span><span class="p">(</span><span class="n">studentavg</span><span class="o">&lt;</span><span class="mi">80</span> <span class="o">&amp;&amp;</span> <span class="n">studentavg</span><span class="o">&gt;=</span><span class="mi">70</span><span class="p">){</span>
-			<span class="n">letter</span> <span class="o">=</span> <span class="sc">'C'</span><span class="p">;</span>
-			<span class="n">stars</span> <span class="o">=</span> <span class="s">"**"</span><span class="p">;</span>
-			<span class="n">starnum</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-		<span class="p">}</span><span class="c1">//if3</span>
-		<span class="k">if</span><span class="p">(</span><span class="n">studentavg</span><span class="o">&lt;</span><span class="mi">70</span> <span class="o">&amp;&amp;</span> <span class="n">studentavg</span><span class="o">&gt;=</span><span class="mi">60</span><span class="p">){</span>
-			<span class="n">letter</span> <span class="o">=</span> <span class="sc">'D'</span><span class="p">;</span>
-			<span class="n">stars</span> <span class="o">=</span> <span class="s">"*"</span><span class="p">;</span>
-			<span class="n">starnum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span><span class="c1">//if4</span>
-		<span class="k">if</span><span class="p">(</span><span class="n">studentavg</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">){</span>
-			<span class="n">letter</span> <span class="o">=</span> <span class="sc">'F'</span><span class="p">;</span>
-			<span class="n">stars</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-			<span class="n">starnum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="p">}</span><span class="c1">//if5</span>
-		
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Grade statistics for "</span> <span class="o">+</span> <span class="n">name</span><span class="p">);</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">" Letter Grade: "</span> <span class="o">+</span> <span class="n">letter</span><span class="p">);</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">" gets "</span> <span class="o">+</span> <span class="n">starnum</span> <span class="o">+</span> <span class="s">" stars! "</span><span class="o">+</span> <span class="n">stars</span><span class="p">);</span>
-			
-			
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\n----------------------------------------"</span><span class="p">);</span>
-		<span class="n">classav</span> <span class="o">+=</span> <span class="n">studentavg</span><span class="p">;</span>
-		<span class="n">count</span><span class="o">++</span><span class="p">;</span>
-		<span class="p">}</span><span class="c1">// while loop</span>
-		
-		
-		
-		
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Class statistics: "</span><span class="p">);</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">" Average: "</span><span class="o">+</span> <span class="p">(</span><span class="n">classav</span> <span class="o">/</span> <span class="n">exams</span><span class="p">));</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">" Lowest : "</span> <span class="o">+</span> <span class="n">lowest</span><span class="p">);</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">" Highest: "</span> <span class="o">+</span> <span class="n">highest</span><span class="p">);</span>
-		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Done. Good bye!"</span><span class="p">);</span>
-		
-		<span class="p">}</span><span class="c1">//main</span>
-<span class="p">}</span><span class="c1">//class</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">testScoreApp</span> <span class="p">{</span>
+ 
+    <span class="cm">/**</span>
+<span class="cm">     * @param args the command line arguments</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO code application logic here</span>
+       
+ 
+ 
+       <span class="p">{</span>
+           <span class="c1">// display operational messages</span>
+           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Please enter test scores that range from 0 to 100."</span><span class="p">);</span>
+           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"To end the program enter 999."</span><span class="p">);</span>
+           <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>  <span class="c1">// print a blank line</span>
+ 
+           <span class="c1">// initialize variables and create a Scanner object</span>
+            
+           <span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+           <span class="n">String</span> <span class="n">choice</span> <span class="o">=</span> <span class="s">"y"</span><span class="p">;</span>
+ 
+           <span class="c1">// get a series of test scores from the user</span>
+           <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">choice</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="s">"n"</span><span class="p">))</span>
+           <span class="p">{</span>
+               <span class="kt">int</span> <span class="n">scoreTotal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+               <span class="kt">int</span> <span class="n">scoreCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+               <span class="kt">int</span> <span class="n">testScore</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+               <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Enter the number of test score to be entered: "</span><span class="p">);</span>
+               <span class="kt">int</span> <span class="n">numberOfTestScores</span> <span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+ 
+               <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">numberOfTestScores</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+               <span class="p">{</span>
+                    <span class="c1">// get the input from the user</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Enter score "</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">": "</span><span class="p">);</span>
+                    <span class="n">testScore</span> <span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+ 
+                    <span class="c1">// accumulate score count and score total</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">testScore</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span>
+                    <span class="p">{</span>
+                         <span class="n">scoreCount</span> <span class="o">=</span> <span class="n">scoreCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+                         <span class="n">scoreTotal</span> <span class="o">=</span> <span class="n">scoreTotal</span> <span class="o">+</span> <span class="n">testScore</span><span class="p">;</span>
+                     
+                      
+                    <span class="p">}</span>
+                    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">testScore</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> 
+                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Invalid entry, not counted"</span><span class="p">);</span>
+                     
+ 
+ 
+                <span class="p">}</span>
+                <span class="kt">double</span> <span class="n">averageScore</span> <span class="o">=</span> <span class="n">scoreTotal</span> <span class="o">/</span> <span class="n">scoreCount</span><span class="p">;</span>
+                <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"\n"</span> <span class="o">+</span>
+                     <span class="s">"Score count:   "</span> <span class="o">+</span> <span class="n">scoreCount</span> <span class="o">+</span> <span class="s">"\n"</span>
+                   <span class="o">+</span> <span class="s">"Score total:   "</span> <span class="o">+</span> <span class="n">scoreTotal</span> <span class="o">+</span> <span class="s">"\n"</span>
+                   <span class="o">+</span> <span class="s">"Average score: "</span> <span class="o">+</span> <span class="n">averageScore</span> <span class="o">+</span> <span class="s">"\n"</span><span class="p">;</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Enter more test scores? (y/n)"</span><span class="p">);</span>
+                <span class="n">choice</span><span class="o">=</span> <span class="n">sc</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+          <span class="p">}</span>
+ 
+ 
+ 
+    <span class="c1">// display the score count, score total, and average score</span>
+ 
+ 
+ 
+    <span class="p">}</span>
+<span class="p">}</span>
+    <span class="p">}</span>
 </pre></div>
 
     </div>
