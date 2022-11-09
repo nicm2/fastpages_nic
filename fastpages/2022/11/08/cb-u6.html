@@ -133,6 +133,54 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Array: A type of data structure that contains a collection of data</li>
+<li>In Java, arrays and ArrayLists are different data structures!  Don’t confuse them!</li>
+<li>The data in a Java array can be primitive or referenced</li>
+<li>Parts of an array: Element → one value in an array, Index → the position of the value in array (most languages, including Java, use 0 indexing)</li>
+<li>When you declare an array variable, it’s not initialized. By default, each element in the array is value 0</li>
+<li>You can also specify the initial values in an array. You don’t need to use the new operator. The compiler counts the number of initial values to determine the length of the array</li>
+<li>int [] numbers = new[10] </li>
+<li>Traversing an array is accessing the values inside of it
+You can use any sort of iteration or loop to traverse an array. Recommend for loops, but you can make while loops or recursion work too if necessary</li>
+<li>In the enhanced for loop, the variable element is assigned to values[0], values[1]. Specific purpose → get elements of a collection from beginning to end</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+<span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">element</span> <span class="p">:</span> <span class="n">values</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">total</span> <span class="o">+=</span> <span class="n">element</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+<span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">loop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">values</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">total</span> <span class="o">+=</span> <span class="n">values</span><span class="o">[</span><span class="n">loop</span><span class="o">]</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
