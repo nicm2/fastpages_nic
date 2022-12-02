@@ -38,7 +38,7 @@ baseurl: "/fastpages_nic" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
-  social_links:
+  # social_links:
     twitter: fastdotai
     github: fastai
 
