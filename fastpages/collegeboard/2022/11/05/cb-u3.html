@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -168,6 +168,115 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Truth Table</p>
+<ul>
+<li>helpful for determining outcomes when boolean values are changed</li>
+<li>shows true and false outputs</li>
+<li>example of simple "or" table below</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>De Morgan's Law</p>
+<ul>
+<li>Complex conditional statements can be hard to evaluate when looking at "!" or "not" operators, and comparison operators, like &gt;, &lt;, &gt;=, &lt;=, ||, &amp;&amp;, and more</li>
+<li>De morgan's law helps by explaining how operators change when a "!" negation is present</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Else Statement</p>
+<ul>
+<li>an "Else" statement is a conditional that is evaluated if the previous "if" conditional evaluates to false. Usage below.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IfandElse</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="p">){</span>
+   
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">//create a variable </span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">&gt;</span><span class="mi">50</span><span class="p">){</span> <span class="c1">// check if condition is true of false (Boolean)</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"num is greater than 18"</span><span class="p">);</span> <span class="c1">// print output if true</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"num is not greater than 18"</span><span class="p">);</span> <span class="c1">// print output when "if" evaluates to false</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">IfandElse</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nested if statements - If-statements within if-statements
+Note - If the outer if-statement evaluates to false, the inner if-statements are not evaluated.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IfandElse</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="p">){</span>
+   
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">//create a variable </span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="o">&gt;</span><span class="mi">30</span><span class="p">){</span> <span class="c1">// check if condition is true of false (Boolean)</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"num is greater than 18"</span><span class="p">);</span> <span class="c1">// print output if true</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"num is not greater than 18"</span><span class="p">);</span> <span class="c1">// print output when "if" evaluates to false</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">IfandElse</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1329,7 +1438,7 @@ Input num of terms:
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/fastpages_nic/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/fastpages_nic/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"></ul>
 </div>
 
   </div>
