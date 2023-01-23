@@ -155,31 +155,47 @@ window.onload = wrap_img;
 <h3 id="Question-3">
 <a class="anchor" href="#Question-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 3<a class="anchor-link" href="#Question-3"> </a>
 </h3>
-<p>int[][] mat = new int[3][4];
-for (int row = 0; row &lt; mat.length; row++)
-{
-    for (int col = 0; col &lt; mat[0].length; col++)
-    {
-        if (row &lt; col)
-        {
-            mat[row][col] = 1;
-        }
-        else if (row == col)
-        {
-            mat[row][col] = 2;
-        }
-        else
-        {
-            mat[row][col] = 3;
-        }
-    }
-}</p>
 <p>What are the contents of mat after the code segment has been executed?</p>
 <p>I put B when the correct answer was D because the elements of array key have indices 0 to key.length – 1. Since the for loop control variable i is initialized to 1 and will increase by 1 until it is equal to key.length, the access to key should be adjusted by 1, otherwise the value at index 0 will not be included in the sum and when i is key.length an ArrayIndexOutOfBoundsException will be thrown.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">int</span><span class="o">[][]</span> <span class="n">mat</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">4</span><span class="o">]</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">mat</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">mat</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="n">col</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">==</span> <span class="n">col</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">mat</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -187,49 +203,112 @@ for (int row = 0; row &lt; mat.length; row++)
 <a class="anchor" href="#Question-14" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 14<a class="anchor-link" href="#Question-14"> </a>
 </h3>
 <p>Consider the following method, which is intended to return the number of columns in the two-dimensional array arr for which the sum of the elements in the column is greater than the parameter val.</p>
-<p>public int countCols(int[][] arr, int val)</p>
-<p>{</p>
-<p>int count = 0;</p>
-<p>for (int col = 0; col &lt; arr[0].length; col++) // Line 5</p>
-<p>{</p>
-<p>int sum = 0;</p>
-<p>for (int[] row : col) // Line 8</p>
-<p>{</p>
-<p>sum += row[col]; // Line 10</p>
-<p>}</p>
-<p>if (sum &gt; val)</p>
-<p>{</p>
-<p>count++;</p>
-<p>}</p>
-<p>}</p>
-<p>return count;</p>
-<p>}</p>
 <p>The countCols method does not work as intended. Which of the following changes should be made so the method works as intended?</p>
 <p>I put E when the correct answer C because two-dimensional arrays are stored as arrays of one-dimensional arrays. Line 8 is intended to assign to row, a one-dimensional array of int values, a single row of the two-dimensional array arr. The original version of line 8 attempts to assign a row of col, but col is not a two-dimensional array.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kt">int</span> <span class="nf">countCols</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="p">{</span>
+
+<span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+ 
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span> <span class="c1">// Line 5</span>
+
+<span class="p">{</span>
+
+<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">row</span> <span class="p">:</span> <span class="n">col</span><span class="p">)</span> <span class="c1">// Line 8</span>
+
+<span class="p">{</span>
+
+<span class="n">sum</span> <span class="o">+=</span> <span class="n">row</span><span class="o">[</span><span class="n">col</span><span class="o">]</span><span class="p">;</span> <span class="c1">// Line 10</span>
+
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&gt;</span> <span class="n">val</span><span class="p">)</span>
+
+<span class="p">{</span>
+
+<span class="n">count</span><span class="o">++</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-29">
 <a class="anchor" href="#Question-29" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question 29<a class="anchor-link" href="#Question-29"> </a>
 </h3>
-<p>Consider the code segment below.</p>
-<p>int a = 1988;</p>
-<p>int b = 1990;</p>
-<p>String claim = " that the world’s athletes " +</p>
-<p>"competed in Olympic Games in ";</p>
-<p>String s = "It is " + true + claim + a +</p>
-<p>" but " + false + claim + b + ".";</p>
-<p>System.out.println(s);</p>
 <p>What, if anything, is printed when the code segment is executed?</p>
 <p>I put E when the correct answer was D because the + operator concatenates the String literals, boolean values, String variables, and int variables in the order that they appear.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">Consider</span> <span class="n">the</span> <span class="n">code</span> <span class="n">segment</span> <span class="n">below</span><span class="p">.</span>
+
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1988</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1990</span><span class="p">;</span>
+
+   
+
+<span class="n">String</span> <span class="n">claim</span> <span class="o">=</span> <span class="s">" that the world’s athletes "</span> <span class="o">+</span>
+
+<span class="s">"competed in Olympic Games in "</span><span class="p">;</span>
+
+   
+
+<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"It is "</span> <span class="o">+</span> <span class="kc">true</span> <span class="o">+</span> <span class="n">claim</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span>
+
+<span class="s">" but "</span> <span class="o">+</span> <span class="kc">false</span> <span class="o">+</span> <span class="n">claim</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s">"."</span><span class="p">;</span>
+
+   
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
