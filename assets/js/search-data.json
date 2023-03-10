@@ -4,9 +4,9 @@
         "post0": {
             "title": "Title",
             "content": "Scanner sc = new Scanner(System.in); System.out.println(&quot;What is your first binary number: &quot;); int a = Integer.parseInt(sc.nextLine(), 2); System.out.println(&quot;What is your second binary number: &quot;); int b = Integer.parseInt(sc.nextLine(), 2); int sum = a + b; System.out.println(&quot;Sum of two binary numbers is: &quot; + Integer.toBinaryString(sum)); . What is your first binary number: What is your second binary number: Sum of two binary numbers is: 1101 .",
-            "url": "https://nicm2.github.io/fastpages_nic/2023/03/06/data-types.html",
-            "relUrl": "/2023/03/06/data-types.html",
-            "date": " • Mar 6, 2023"
+            "url": "https://nicm2.github.io/fastpages_nic/2023/03/09/data-types.html",
+            "relUrl": "/2023/03/09/data-types.html",
+            "date": " • Mar 9, 2023"
         }
         
     
