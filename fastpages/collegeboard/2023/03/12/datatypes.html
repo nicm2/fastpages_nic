@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -587,7 +587,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The menu code in methodsDataTypes is an example of using try/catch statements and Runnable interfaces to control program execution. The try/catch statements are used to handle exceptions that might occur when reading user input, and the Runnable interfaces are used to define the actions that should be</p>
+<p>This code defines a custom implementation of a menu, which is used to allow the user to select from a list of options. The options are defined as instances of the MenuRow class, which contains a title and an action. The title is a description of the option that is displayed to the user, and the action is a Runnable that is executed when the user selects the option.</p>
+<p>The Menu class contains a HashMap that maps integer keys to MenuRow values. Each key corresponds to a menu option, and each value contains the title and action for that option. The Menu class has a constructor that takes an array of MenuRow instances and uses them to populate the HashMap.</p>
+<p>The Menu class also contains methods to get a MenuRow by key, iterate through and print the options in the menu, and a main method that can be used to test the menu.</p>
+<p>The MenuRow class contains a constructor that takes a title and a Runnable action, as well as getters for the title and action. The MenuRow class also contains a run method that executes the action by calling its run method.</p>
+<p>The Driver class contains a main method that creates an array of MenuRow instances and uses them to create a Menu. It then enters a loop that displays the menu and waits for the user to select an option. When the user selects an option, the corresponding Runnable is executed.</p>
 <h3 id="Key-Concepts">
 <a class="anchor" href="#Key-Concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Concepts<a class="anchor-link" href="#Key-Concepts"> </a>
 </h3>
@@ -637,6 +641,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This code defines a method called "isDiverse" that takes a 2D integer array as an argument and returns a boolean value. It calculates the sums of each row of the input array, and then checks if any of these sums are equal to each other. If any sums are equal, the method returns false, and if all sums are unique, the method returns true.</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
