@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      21 min read
     
 </span></p>
 
@@ -656,45 +656,383 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QueueShuffler</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">int</span> <span class="n">rand</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="n">i</span><span class="p">));</span>
-            <span class="n">T</span> <span class="n">element</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">rand</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">q</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="na">remove</span><span class="p">());</span>
-            <span class="p">}</span>
-            <span class="n">q</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
-        <span class="p">}</span>
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> *  Implementation of a Double Linked List;  forward and backward links point to adjacent Nodes.</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+ <span class="p">{</span>
+     <span class="kd">private</span> <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
+     <span class="kd">private</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">prevNode</span><span class="p">,</span> <span class="n">nextNode</span><span class="p">;</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Constructs a new element</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param  data, data of object</span>
+<span class="cm">      * @param  node, previous node</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="nf">LinkedList</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">,</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Clone an object,</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param  node  object to clone</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="nf">LinkedList</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">data</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">prevNode</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">nextNode</span><span class="p">);</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Setter for T data in DoubleLinkedNode object</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param  data, update data of object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Returns T data for this element</span>
+<span class="cm">      *</span>
+<span class="cm">      * @return  data associated with object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="n">T</span> <span class="nf">getData</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">data</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Setter for prevNode in DoubleLinkedNode object</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param node, prevNode to current Object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPrevNode</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">prevNode</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Setter for nextNode in DoubleLinkedNode object</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param node, nextNode to current Object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNextNode</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">nextNode</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Returns reference to previous object in list</span>
+<span class="cm">      *</span>
+<span class="cm">      * @return  the previous object in the list</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getPrevious</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">prevNode</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Returns reference to next object in list</span>
+<span class="cm">      *</span>
+<span class="cm">      * @return  the next object in the list</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getNext</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">nextNode</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+ <span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * Queue Iterator</span>
+<span class="cm"> *</span>
+<span class="cm"> * 1. "has a" current reference in Queue</span>
+<span class="cm"> * 2. supports iterable required methods for next that returns a generic T Object</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">QueueIterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">;</span>  <span class="c1">// current element in iteration</span>
+
+    <span class="c1">// QueueIterator is pointed to the head of the list for iteration</span>
+    <span class="kd">public</span> <span class="nf">QueueIterator</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// hasNext informs if next element exists</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// next returns data object and advances to next position in queue</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
+<span class="cm"> * Queue: custom implementation</span>
+<span class="cm"> * @author     John Mortensen</span>
+<span class="cm"> *</span>
+<span class="cm"> * 1. Uses custom LinkedList of Generic type T</span>
+<span class="cm"> * 2. Implements Iterable</span>
+<span class="cm"> * 3. "has a" LinkedList for head and tail</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Add a new object at the end of the Queue,</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param  data,  is the data to be inserted in the Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// add new object to end of Queue</span>
+        <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>  <span class="c1">// initial condition</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+        <span class="k">else</span> <span class="p">{</span>  <span class="c1">// nodes in queue</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span> <span class="c1">// current tail points to new tail</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>  <span class="c1">// update tail</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the data of head.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  data, the dequeued data</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// initial condition</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span> <span class="c1">// current tail points to new tail</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Get the number of elements in the Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* </span>
+<span class="cm">     * Returns true if Queue is empty.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Return data in Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">str</span> <span class="o">+=</span> <span class="n">data</span> <span class="o">+</span> <span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">str</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Returns data as List.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">asList</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the data of head.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.head.getData(), the head data in Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the head object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.head, the head object in Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getHead</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the tail object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.tail, the last object in Queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getTail</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the iterator object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this, instance of object</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">QueueIterator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * Queue Manager</span>
+<span class="cm"> * 1. "has a" Queue</span>
+<span class="cm"> * 2. support management of Queue tasks (aka: titling, adding a list, printing)</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">QueueManager</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// queue data</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span> <span class="c1">// name of queue</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// number of objects in queue</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;</span><span class="p">();</span> <span class="c1">// queue object</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Queue constructor</span>
+<span class="cm">     *  Title with empty queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">QueueManager</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Queue constructor</span>
+<span class="cm">     *  Title with series of Arrays of Objects</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">QueueManager</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">T</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">addList</span><span class="p">(</span><span class="n">seriesOfObjects</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Add an element to queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Enqueued data: "</span> <span class="o">+</span> <span class="n">data</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Add a list of objects to queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addList</span><span class="p">(</span><span class="n">T</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//accepts multiple generic T lists</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">objects</span><span class="p">:</span> <span class="n">seriesOfObjects</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="n">objects</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Delete an element from queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// print data else print null</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Dequeued data: "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Print any array objects from queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printQueue</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">" count: "</span> <span class="o">+</span> <span class="n">count</span> <span class="o">+</span> <span class="s">", data: "</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="n">queue</span><span class="p">)</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s">" "</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cm">/**</span>
 <span class="cm"> * Driver Class</span>
 <span class="cm"> * Tests queue with string, integers, and mixes of Classes and types</span>
 <span class="cm"> */</span>
-<span class="kd">class</span> <span class="nc">QueueShuffle</span> <span class="p">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
-  <span class="p">{</span>
-    
-    <span class="c1">// Create first queue</span>
-    <span class="kt">int</span><span class="o">[]</span> <span class="n">firstData</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">};</span>
-    <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">firstQ</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">:</span> <span class="n">firstData</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">firstQ</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="kd">class</span> <span class="nc">QueueTester</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Create iterable Queue of Words</span>
+        <span class="n">Object</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="p">{</span> <span class="s">"seven"</span><span class="p">,</span> <span class="s">"slimy"</span><span class="p">,</span> <span class="s">"snakes"</span><span class="p">,</span> <span class="s">"sallying"</span><span class="p">,</span> <span class="s">"slowly"</span><span class="p">,</span> <span class="s">"slithered"</span><span class="p">,</span> <span class="s">"southward"</span><span class="p">};</span>
+        <span class="n">QueueManager</span> <span class="n">qWords</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="p">(</span><span class="s">"Words"</span><span class="p">,</span> <span class="n">words</span><span class="p">);</span>
+        <span class="n">qWords</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+
+        <span class="c1">// Create iterable Queue of Integers</span>
+        <span class="n">Object</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+        <span class="n">QueueManager</span> <span class="n">qNums</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="p">(</span><span class="s">"Integers"</span><span class="p">,</span> <span class="n">numbers</span> <span class="p">);</span>
+        <span class="n">qNums</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+
+        <span class="c1">// // Create iterable Queue of NCS Generics</span>
+        <span class="c1">// Animal.setOrder(Animal.KeyType.name);</span>
+        <span class="c1">// Alphabet.setOrder(Alphabet.KeyType.letter);</span>
+        <span class="c1">// Cupcake.setOrder(Cupcake.KeyType.flavor);</span>
+        <span class="c1">// // Illustrates use of a series of repeating arguments</span>
+        <span class="c1">// QueueManager qGenerics = new QueueManager("My Generics",</span>
+        <span class="c1">//         Alphabet.alphabetData(),</span>
+        <span class="c1">//         Animal.animals(),</span>
+        <span class="c1">//         Cupcake.cupcakes()</span>
+        <span class="c1">// );</span>
+        <span class="c1">// qGenerics.printQueue();</span>
+
+        <span class="c1">// // Create iterable Queue of Mixed types of data</span>
+        <span class="c1">// QueueManager qMix = new QueueManager("Mixed");</span>
+        <span class="c1">// qMix.queue.add("Start");</span>
+        <span class="c1">// qMix.addList(</span>
+        <span class="c1">//         words,</span>
+        <span class="c1">//         numbers,</span>
+        <span class="c1">//         Alphabet.alphabetData(),</span>
+        <span class="c1">//         Animal.animals(),</span>
+        <span class="c1">//         Cupcake.cupcakes()</span>
+        <span class="c1">// );</span>
+        <span class="c1">// qMix.queue.add("End");</span>
+        <span class="c1">// qMix.printQueue();</span>
     <span class="p">}</span>
-
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">firstQ</span><span class="p">);</span>
-
-    <span class="n">QueueShuffler</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">shuffler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueShuffler</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-    <span class="n">shuffler</span><span class="p">.</span><span class="na">shuffle</span><span class="p">(</span><span class="n">firstQ</span><span class="p">);</span>
-    
-    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">firstQ</span><span class="p">);</span>
-
-  <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">QueueShuffle</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+<span class="n">QueueTester</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="n">Words</span> <span class="n">count</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">seven</span> <span class="n">slimy</span> <span class="n">snakes</span> <span class="n">sallying</span> <span class="n">slowly</span> <span class="n">slithered</span> <span class="n">southward</span>
+<span class="n">Integers</span> <span class="n">count</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShuffleQueue</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Object</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>
+      <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"Numbers"</span><span class="p">,</span> <span class="n">numbers</span><span class="p">);</span>
+      <span class="n">q</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+      <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">shuffled</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+      <span class="n">shuffled</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+    <span class="p">}</span>
+  
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// first convert to ArrayList then shuffle</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">asList</span><span class="p">());</span>
+      <span class="n">Collections</span><span class="p">.</span><span class="na">shuffle</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+      <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">shuffled</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"Shuffled"</span><span class="p">);</span>
+      <span class="n">shuffled</span><span class="p">.</span><span class="na">addList</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">toArray</span><span class="p">());</span>
+      <span class="k">return</span> <span class="n">shuffled</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="n">ShuffleQueue</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -706,10 +1044,19 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Words count: 7, data: seven slimy snakes sallying slowly slithered southward 
+Integers count: 10, data: 0 1 2 3 4 5 6 7 8 9 
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">public class QueueShuffler&lt;T&gt; {</span>
-<span class="ansi-red-intense-fg ansi-bold">a type with the same simple name is already defined by the static single-type-import of LinkedList</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">Words count</span><span class="ansi-black-intense-fg ansi-bold">: 7, data: seven slimy snakes sallying slowly slithered southward; </span>
+<span class="ansi-red-intense-fg ansi-bold">';' expected</span>
 </pre>
 </div>
 </div>
@@ -727,146 +1074,387 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="p">;</span>
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> *  Implementation of a Double Linked List;  forward and backward links point to adjacent Nodes.</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+ <span class="p">{</span>
+     <span class="kd">private</span> <span class="n">T</span> <span class="n">data</span><span class="p">;</span>
+     <span class="kd">private</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">prevNode</span><span class="p">,</span> <span class="n">nextNode</span><span class="p">;</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Constructs a new element</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param  data, data of object</span>
+<span class="cm">      * @param  node, previous node</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="nf">LinkedList</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">,</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Clone an object,</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param  node  object to clone</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="nf">LinkedList</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">data</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">prevNode</span><span class="p">);</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="na">nextNode</span><span class="p">);</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Setter for T data in DoubleLinkedNode object</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param  data, update data of object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Returns T data for this element</span>
+<span class="cm">      *</span>
+<span class="cm">      * @return  data associated with object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="n">T</span> <span class="nf">getData</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">data</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Setter for prevNode in DoubleLinkedNode object</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param node, prevNode to current Object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPrevNode</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">prevNode</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Setter for nextNode in DoubleLinkedNode object</span>
+<span class="cm">      *</span>
+<span class="cm">      * @param node, nextNode to current Object</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNextNode</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">this</span><span class="p">.</span><span class="na">nextNode</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Returns reference to previous object in list</span>
+<span class="cm">      *</span>
+<span class="cm">      * @return  the previous object in the list</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getPrevious</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">prevNode</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+     <span class="cm">/**</span>
+<span class="cm">      *  Returns reference to next object in list</span>
+<span class="cm">      *</span>
+<span class="cm">      * @return  the next object in the list</span>
+<span class="cm">      */</span>
+     <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getNext</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">nextNode</span><span class="p">;</span>
+     <span class="p">}</span>
+ 
+ <span class="p">}</span>
+<span class="cm">/**</span>
+<span class="cm"> * Queue Iterator</span>
+<span class="cm"> *</span>
+<span class="cm"> * 1. "has a" current reference in Queue</span>
+<span class="cm"> * 2. supports iterable required methods for next that returns a generic T Object</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">QueueIterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">;</span>  <span class="c1">// current element in iteration</span>
+
+    <span class="c1">// QueueIterator is pointed to the head of the list for iteration</span>
+    <span class="kd">public</span> <span class="nf">QueueIterator</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// hasNext informs if next element exists</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// next returns data object and advances to next position in queue</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="cm">/**</span>
-<span class="cm"> * Stack: custom implementation</span>
+<span class="cm"> * Queue: custom implementation</span>
+<span class="cm"> * @author     John Mortensen</span>
+<span class="cm"> *</span>
+<span class="cm"> * 1. Uses custom LinkedList of Generic type T</span>
+<span class="cm"> * 2. Implements Iterable</span>
+<span class="cm"> * 3. "has a" LinkedList for head and tail</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">top</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * Pushes a new object onto the top of the stack.</span>
+<span class="cm">     *  Add a new object at the end of the Queue,</span>
 <span class="cm">     *</span>
-<span class="cm">     * @param  data  the data to be pushed.</span>
+<span class="cm">     * @param  data,  is the data to be inserted in the Queue.</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">top</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">top</span><span class="p">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// add new object to end of Queue</span>
+        <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>  <span class="c1">// initial condition</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+        <span class="k">else</span> <span class="p">{</span>  <span class="c1">// nodes in queue</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">.</span><span class="na">setNextNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span> <span class="c1">// current tail points to new tail</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>  <span class="c1">// update tail</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * Pops the top object from the stack and returns its data.</span>
+<span class="cm">     *  Returns the data of head.</span>
 <span class="cm">     *</span>
-<span class="cm">     * @return  the data of the popped object.</span>
-<span class="cm">     * @throws  EmptyStackException if the stack is empty.</span>
+<span class="cm">     * @return  data, the dequeued data</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="n">T</span> <span class="nf">pop</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">EmptyStackException</span><span class="p">();</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">tail</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// initial condition</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span> <span class="c1">// current tail points to new tail</span>
+            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">setPrevNode</span><span class="p">(</span><span class="n">tail</span><span class="p">);</span>
+            <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="n">top</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
-        <span class="n">top</span> <span class="o">=</span> <span class="n">top</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
         <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * Returns the data of the top object without popping it.</span>
-<span class="cm">     *</span>
-<span class="cm">     * @return  the data of the top object.</span>
-<span class="cm">     * @throws  EmptyStackException if the stack is empty.</span>
+<span class="cm">     * Get the number of elements in the Queue.</span>
 <span class="cm">     */</span>
-    <span class="kd">public</span> <span class="n">T</span> <span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">EmptyStackException</span><span class="p">();</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">return</span> <span class="n">top</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="cm">/**</span>
-<span class="cm">     * Returns whether the stack is empty.</span>
-<span class="cm">     *</span>
-<span class="cm">     * @return  true if the stack is empty, false otherwise.</span>
+    <span class="cm">/* </span>
+<span class="cm">     * Returns true if Queue is empty.</span>
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">top</span> <span class="o">==</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span> <span class="o">==</span> <span class="kc">null</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * Returns an iterator over the elements in the stack.</span>
-<span class="cm">     *</span>
-<span class="cm">     * @return  an iterator over the elements in the stack.</span>
-<span class="cm">     */</span>
-    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">StackIterator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">top</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="cm">/**</span>
-<span class="cm">     * Returns a string representation of the stack.</span>
-<span class="cm">     *</span>
-<span class="cm">     * @return  a string representation of the stack.</span>
+<span class="cm">     *  Return data in Queue.</span>
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
-        <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"["</span><span class="p">);</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">item</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-            <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">", "</span><span class="p">);</span>
+        <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">str</span> <span class="o">+=</span> <span class="n">data</span> <span class="o">+</span> <span class="s">" "</span><span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-            <span class="n">sb</span><span class="p">.</span><span class="na">setLength</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">"]"</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">str</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * StackIterator: iterator for Stack.</span>
+<span class="cm">     * Returns data as List.</span>
 <span class="cm">     */</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">StackIterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
-        <span class="kd">private</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span><span class="p">;</span>
-
-        <span class="cm">/**</span>
-<span class="cm">         * Constructs a new StackIterator that starts at the given node.</span>
-<span class="cm">         *</span>
-<span class="cm">         * @param  node  the node to start iterating from.</span>
-<span class="cm">         */</span>
-        <span class="kd">public</span> <span class="nf">StackIterator</span><span class="p">(</span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">asList</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
         <span class="p">}</span>
+        <span class="k">return</span> <span class="n">list</span><span class="p">;</span>
+    <span class="p">}</span>
 
-        <span class="cm">/**</span>
-<span class="cm">         * Returns whether there are more elements in the stack.</span>
-<span class="cm">         *</span>
-<span class="cm">         * @return  true if there are more elements, false otherwise.</span>
-<span class="cm">         */</span>
-        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="p">}</span>
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the data of head.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.head.getData(), the head data in Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
+    <span class="p">}</span>
 
-        <span class="cm">/**</span>
-<span class="cm">         * Returns the next element in the stack.</span>
-<span class="cm">         *</span>
-<span class="cm">         * @return  the next element in the stack.</span>
-<span class="cm">         * @throws  NoSuchElementException if there are no more elements.</span>
-<span class="cm">         */</span>
-        <span class="kd">public</span> <span class="n">T</span> <span class="nf">next</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">hasNext</span><span class="p">())</span> <span class="p">{</span>
-                <span class="k">throw</span> <span class="k">new</span> <span class="n">NoSuchElementException</span><span class="p">();</span>
-            <span class="p">}</span>
-            <span class="n">T</span> <span class="n">data</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getData</span><span class="p">();</span>
-            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="na">getNext</span><span class="p">();</span>
-            <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
-        <span class="p">}</span>
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the head object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.head, the head object in Queue.</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getHead</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the tail object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this.tail, the last object in Queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getTail</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">tail</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Returns the iterator object.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return  this, instance of object</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">QueueIterator</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">head</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
 <span class="cm">/**</span>
-<span class="cm"> * StackTester: tests Stack with integers.</span>
+<span class="cm"> * Queue Manager</span>
+<span class="cm"> * 1. "has a" Queue</span>
+<span class="cm"> * 2. support management of Queue tasks (aka: titling, adding a list, printing)</span>
 <span class="cm"> */</span>
-<span class="kd">class</span> <span class="nc">StackTester</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span> <span class="c1">// prints "[3, 2, 1]"</span>
-        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span>
-        <span class="p">}</span>
-        <span class="c1">// prints "3\n2\n1\n"</span>
+<span class="kd">class</span> <span class="nc">QueueManager</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// queue data</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span> <span class="c1">// name of queue</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// number of objects in queue</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;&gt;</span><span class="p">();</span> <span class="c1">// queue object</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Queue constructor</span>
+<span class="cm">     *  Title with empty queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">QueueManager</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     *  Queue constructor</span>
+<span class="cm">     *  Title with series of Arrays of Objects</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">QueueManager</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">T</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">addList</span><span class="p">(</span><span class="n">seriesOfObjects</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Add an element to queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="n">T</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Enqueued data: "</span> <span class="o">+</span> <span class="n">data</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Add a list of objects to queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addList</span><span class="p">(</span><span class="n">T</span><span class="o">[]</span><span class="p">...</span> <span class="n">seriesOfObjects</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//accepts multiple generic T lists</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span><span class="o">[]</span> <span class="n">objects</span><span class="p">:</span> <span class="n">seriesOfObjects</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="n">objects</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Delete an element from queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// print data else print null</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Dequeued data: "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Print any array objects from queue</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printQueue</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">" count: "</span> <span class="o">+</span> <span class="n">count</span> <span class="o">+</span> <span class="s">", data: "</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">T</span> <span class="n">data</span> <span class="p">:</span> <span class="n">queue</span><span class="p">)</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s">" "</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">StackTester</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="cm">/**</span>
+<span class="cm"> * Driver Class</span>
+<span class="cm"> * Tests queue with string, integers, and mixes of Classes and types</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">QueueTester</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Create iterable Queue of Words</span>
+        <span class="n">Object</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="p">{</span> <span class="s">"seven"</span><span class="p">,</span> <span class="s">"slimy"</span><span class="p">,</span> <span class="s">"snakes"</span><span class="p">,</span> <span class="s">"sallying"</span><span class="p">,</span> <span class="s">"slowly"</span><span class="p">,</span> <span class="s">"slithered"</span><span class="p">,</span> <span class="s">"southward"</span><span class="p">};</span>
+        <span class="n">QueueManager</span> <span class="n">qWords</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="p">(</span><span class="s">"Words"</span><span class="p">,</span> <span class="n">words</span><span class="p">);</span>
+        <span class="n">qWords</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+
+        <span class="c1">// Create iterable Queue of Integers</span>
+        <span class="n">Object</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+        <span class="n">QueueManager</span> <span class="n">qNums</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="p">(</span><span class="s">"Integers"</span><span class="p">,</span> <span class="n">numbers</span> <span class="p">);</span>
+        <span class="n">qNums</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+
+        <span class="c1">// // Create iterable Queue of NCS Generics</span>
+        <span class="c1">// Animal.setOrder(Animal.KeyType.name);</span>
+        <span class="c1">// Alphabet.setOrder(Alphabet.KeyType.letter);</span>
+        <span class="c1">// Cupcake.setOrder(Cupcake.KeyType.flavor);</span>
+        <span class="c1">// // Illustrates use of a series of repeating arguments</span>
+        <span class="c1">// QueueManager qGenerics = new QueueManager("My Generics",</span>
+        <span class="c1">//         Alphabet.alphabetData(),</span>
+        <span class="c1">//         Animal.animals(),</span>
+        <span class="c1">//         Cupcake.cupcakes()</span>
+        <span class="c1">// );</span>
+        <span class="c1">// qGenerics.printQueue();</span>
+
+        <span class="c1">// // Create iterable Queue of Mixed types of data</span>
+        <span class="c1">// QueueManager qMix = new QueueManager("Mixed");</span>
+        <span class="c1">// qMix.queue.add("Start");</span>
+        <span class="c1">// qMix.addList(</span>
+        <span class="c1">//         words,</span>
+        <span class="c1">//         numbers,</span>
+        <span class="c1">//         Alphabet.alphabetData(),</span>
+        <span class="c1">//         Animal.animals(),</span>
+        <span class="c1">//         Cupcake.cupcakes()</span>
+        <span class="c1">// );</span>
+        <span class="c1">// qMix.queue.add("End");</span>
+        <span class="c1">// qMix.printQueue();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">QueueTester</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="n">Words</span> <span class="n">count</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">seven</span> <span class="n">slimy</span> <span class="n">snakes</span> <span class="n">sallying</span> <span class="n">slowly</span> <span class="n">slithered</span> <span class="n">southward</span> 
+<span class="n">Integers</span> <span class="n">count</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseQueue</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+      <span class="n">Object</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+      <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueueManager</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"Numbers"</span><span class="p">,</span> <span class="n">numbers</span><span class="p">);</span>
+      <span class="n">q</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+  
+      <span class="c1">// place elements from Queue into Stack</span>
+      <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">delete</span><span class="p">());</span>
+      <span class="p">}</span>
+  
+      <span class="c1">// place elements from Stack back into Queue</span>
+      <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">q</span><span class="p">.</span><span class="na">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span>
+      <span class="p">}</span>
+  
+      <span class="n">q</span><span class="p">.</span><span class="na">printQueue</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="n">ReverseQueue</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="n">Numbers</span> <span class="n">count</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> 
+<span class="n">Numbers</span> <span class="n">count</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span>
 </pre></div>
 
     </div>
@@ -878,18 +1466,19 @@ Words count: 8, data: 1 2 3 4 5 6 7 8
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Words count: 7, data: seven slimy snakes sallying slowly slithered southward 
+Integers count: 10, data: 0 1 2 3 4 5 6 7 8 9 
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansi-black-intense-fg ansi-bold">|   </span>
-<span class="ansi-red-intense-fg ansi-bold">a type with the same simple name is already defined by the static single-type-import of LinkedList</span>
-
-<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">    </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">LinkedList</span><span class="ansi-black-intense-fg ansi-bold">&lt;T&gt; current;  // current element in iteration</span>
-<span class="ansi-red-intense-fg ansi-bold">reference to LinkedList is ambiguous</span>
-<span class="ansi-red-intense-fg ansi-bold">  both class LinkedList in  and class java.util.LinkedList in java.util match</span>
-
-<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">    public StackIterator(</span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">LinkedList</span><span class="ansi-black-intense-fg ansi-bold">&lt;T&gt; head) {</span>
-<span class="ansi-red-intense-fg ansi-bold">reference to LinkedList is ambiguous</span>
-<span class="ansi-red-intense-fg ansi-bold">  both class LinkedList in  and class java.util.LinkedList in java.util match</span>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">Words count</span><span class="ansi-black-intense-fg ansi-bold">: 7, data: seven slimy snakes sallying slowly slithered southward </span>
+<span class="ansi-red-intense-fg ansi-bold">';' expected</span>
 </pre>
 </div>
 </div>
