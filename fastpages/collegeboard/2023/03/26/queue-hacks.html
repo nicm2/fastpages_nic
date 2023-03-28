@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      16 min read
     
 </span></p>
 
@@ -143,6 +143,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Challenge-4">Challenge 4 </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#Custom-Stack">Custom Stack </a></li>
 </ul>
 </li>
 </ul><!--
@@ -1008,6 +1009,152 @@ Shuffled count: 10, data: 7 2 9 6 5 3 8 4 1 10
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Numbers count: 5, data: 1 2 3 4 5 
 Numbers count: 5, data: 5 4 3 2 1 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Custom-Stack">
+<a class="anchor" href="#Custom-Stack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Stack<a class="anchor-link" href="#Custom-Stack"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stage</span> <span class="p">{</span>
+	<span class="c1">// Class data</span>
+
+	<span class="c1">// Instance data</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">difficulty</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">question</span><span class="p">;</span>
+
+	<span class="cm">/* constructor</span>
+<span class="cm">	 *</span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="nf">Stage</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">difficulty</span><span class="p">,</span> <span class="n">String</span> <span class="n">question</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">difficulty</span> <span class="o">=</span> <span class="n">difficulty</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">questions</span> <span class="o">=</span> <span class="n">question</span><span class="p">;</span>
+	<span class="p">}</span>
+
+
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="s">"{ \"name\": \""</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"\", \"difficulty\": \""</span> <span class="o">+</span> <span class="n">difficulty</span> <span class="o">+</span> <span class="s">"\", \"question\": \""</span> <span class="o">+</span> <span class="n">question</span> <span class="o">+</span> <span class="s">"\" }"</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// Test data initializer</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">Stage</span><span class="o">[]</span> <span class="nf">stages</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Stage</span><span class="o">[]</span> <span class="p">{</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Jungle Jump"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"What data structure uses a LIFO (last in, first out) approach?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Coconut Climb"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"What data structure is made up of a series of nodes, each containing data and a reference to the next node?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Vine Swing"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">"What data structure has a hierarchical structure with a root, branches, and leaves?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Banana Bounce"</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">"What data structure is made up of nodes and edges that connect the nodes?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Mango Maze"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">"What data structure is a collection of elements of the same type, accessed by an index or a subscript?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Papaya Peak"</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"What data structure uses a hash function to map keys to values, allowing for efficient lookup and insertion?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Durian Dive"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s">"What data structure is a binary tree with the property that the value of each node is greater than or equal to its children?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Guava Glide"</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s">"What algorithm sorts a list by repeatedly swapping adjacent elements that are in the wrong order?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Passionfruit Plunge"</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s">"What algorithm searches for an element in a sorted list by repeatedly dividing the search interval in half?"</span><span class="p">),</span>
+            <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Dragonfruit Dash"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">"What technique solves a problem by breaking it down into smaller subproblems of the same type?"</span><span class="p">),</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+	
+	<span class="cm">/* main to test Person class</span>
+<span class="cm">	 * </span>
+<span class="cm">	 */</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// Inheritance Hierarchy</span>
+		<span class="c1">//Person[] objs = persons();</span>
+		<span class="n">Stage</span> <span class="n">junglejump</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stage</span><span class="p">(</span><span class="s">"Jungle Jump"</span><span class="p">,</span> <span class="s">"1"</span><span class="p">,</span> <span class="s">"What data structure uses a LIFO (last in, first out) approach?"</span><span class="p">);</span>
+		<span class="c1">// print with title</span>
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Stage Class Test"</span><span class="p">);</span>
+		<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">junglejump</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+	
+	<span class="p">}</span>
+
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">StageStackTester</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Stage</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Stage</span> <span class="n">p</span> <span class="p">:</span> <span class="n">Stage</span><span class="p">.</span><span class="na">stages</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">s</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">StageStackTester</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">this.email</span><span class="ansi-black-intense-fg ansi-bold"> = difficulty;</span>
+<span class="ansi-red-intense-fg ansi-bold">cannot find symbol</span>
+<span class="ansi-red-intense-fg ansi-bold">  symbol: variable email</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">        </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">this.passwordHash</span><span class="ansi-black-intense-fg ansi-bold"> = question;</span>
+<span class="ansi-red-intense-fg ansi-bold">cannot find symbol</span>
+<span class="ansi-red-intense-fg ansi-bold">  symbol: variable passwordHash</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Jungle Jump", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">1</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure uses a LIFO (last in, first out) approach?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Coconut Climb", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">2</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure is made up of a series of nodes, each containing data and a reference to the next node?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Vine Swing", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">3</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure has a hierarchical structure with a root, branches, and leaves?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Banana Bounce", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">4</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure is made up of nodes and edges that connect the nodes?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Mango Maze", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">5</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure is a collection of elements of the same type, accessed by an index or a subscript?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Papaya Peak", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">6</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure uses a hash function to map keys to values, allowing for efficient lookup and insertion?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Durian Dive", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">7</span><span class="ansi-black-intense-fg ansi-bold">, "What data structure is a binary tree with the property that the value of each node is greater than or equal to its children?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Guava Glide", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">8</span><span class="ansi-black-intense-fg ansi-bold">, "What algorithm sorts a list by repeatedly swapping adjacent elements that are in the wrong order?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Passionfruit Plunge", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">9</span><span class="ansi-black-intense-fg ansi-bold">, "What algorithm searches for an element in a sorted list by repeatedly dividing the search interval in half?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
+
+<span class="ansi-black-intense-fg ansi-bold">|   </span><span class="ansi-black-intense-fg ansi-bold">            new Stage("Dragonfruit Dash", </span><span class="ansi-black-intense-fg ansi-red-bg ansi-bold">10</span><span class="ansi-black-intense-fg ansi-bold">, "What technique solves a problem by breaking it down into smaller subproblems of the same type?"),</span>
+<span class="ansi-red-intense-fg ansi-bold">incompatible types: int cannot be converted to java.lang.String</span>
 </pre>
 </div>
 </div>
