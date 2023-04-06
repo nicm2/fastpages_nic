@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -239,6 +239,9 @@ window.onload = wrap_img;
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">bubbleSort</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
         <span class="n">MyStack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">sorted</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyStack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
         <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">pop</span><span class="p">();</span>
@@ -253,6 +256,9 @@ window.onload = wrap_img;
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">selectionSort</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
         <span class="n">MyStack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">sorted</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyStack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
         <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">())</span> <span class="p">{</span>
             <span class="n">T</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">pop</span><span class="p">();</span>
@@ -319,6 +325,9 @@ window.onload = wrap_img;
     
     
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertionSort</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
         <span class="n">MyStack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">sorted</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyStack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
         <span class="n">sorted</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">pop</span><span class="p">());</span>
     
@@ -460,10 +469,10 @@ Stack after insertion sort: [ 1, 2, 3, 5, 7, 9 ]
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Bubble sort time: 6100 ns
+<pre>Bubble sort time: 7100 ns
 Selection sort time: 1400 ns
-Merge sort time: 1400 ns
-Insertion sort time: 2300 ns
+Merge sort time: 1500 ns
+Insertion sort time: 1800 ns
 </pre>
 </div>
 </div>
@@ -537,10 +546,10 @@ Insertion sort time: 2300 ns
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Bubble sort time: 112903500 ns
-Selection sort time: 651900 ns
-Merge sort time: 2600 ns
-Insertion sort time: 1033800 ns
+<pre>Bubble sort time: 137113100 ns
+Selection sort time: 695700 ns
+Merge sort time: 4600 ns
+Insertion sort time: 700600 ns
 </pre>
 </div>
 </div>
