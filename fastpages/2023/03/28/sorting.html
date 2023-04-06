@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -421,8 +421,8 @@ Stack after insertion sort: [ 1, 2, 3, 5, 7, 9 ]
         <span class="n">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
 
         <span class="c1">// push 500 random elements to the stack</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
         <span class="p">}</span>
 
         <span class="c1">// time bubble sort</span>
@@ -469,10 +469,87 @@ Stack after insertion sort: [ 1, 2, 3, 5, 7, 9 ]
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Bubble sort time: 12162900 ns
-Selection sort time: 67300 ns
-Merge sort time: 1600 ns
-Insertion sort time: 60300 ns
+<pre>Bubble sort time: 4200 ns
+Selection sort time: 4800 ns
+Merge sort time: 3000 ns
+Insertion sort time: 3300 ns
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BigO</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">MyStack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyStack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+
+        <span class="c1">// push 500 random elements to the stack</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">5000</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="c1">// time bubble sort</span>
+        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">bubbleSort</span><span class="p">();</span>
+        <span class="kt">long</span> <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="kt">long</span> <span class="n">bubbleSortTime</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+
+        <span class="c1">// time selection sort</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">selectionSort</span><span class="p">();</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="kt">long</span> <span class="n">selectionSortTime</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+
+        <span class="c1">// time merge sort</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">mergeSort</span><span class="p">();</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="kt">long</span> <span class="n">mergeSortTime</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+
+        <span class="c1">// time insertion sort</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="n">stack</span><span class="p">.</span><span class="na">insertionSort</span><span class="p">();</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+        <span class="kt">long</span> <span class="n">insertionSortTime</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">;</span>
+
+        <span class="c1">// print the times for each sorting method</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Bubble sort time: "</span> <span class="o">+</span> <span class="n">bubbleSortTime</span> <span class="o">+</span> <span class="s">" ns"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Selection sort time: "</span> <span class="o">+</span> <span class="n">selectionSortTime</span> <span class="o">+</span> <span class="s">" ns"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Merge sort time: "</span> <span class="o">+</span> <span class="n">mergeSortTime</span> <span class="o">+</span> <span class="s">" ns"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Insertion sort time: "</span> <span class="o">+</span> <span class="n">insertionSortTime</span> <span class="o">+</span> <span class="s">" ns"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">BigO</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Bubble sort time: 190325000 ns
+Selection sort time: 1036000 ns
+Merge sort time: 14700 ns
+Insertion sort time: 731400 ns
 </pre>
 </div>
 </div>
@@ -658,8 +735,8 @@ Insertion sort time: 60300 ns
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Binary search avg = 704 ns
-Hashmap avg = 539 ns
+<pre>Binary search avg = 558 ns
+Hashmap avg = 318 ns
 </pre>
 </div>
 </div>
